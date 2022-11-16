@@ -62,3 +62,21 @@ def bubble_sort(l: list) -> None:
                 l[i], l[i+1] = l[i+1], l[i]
                 _sorted = False
 ```
+#### Merge sort
+```python
+def merge_sort(l: list) -> list:
+    if len(l) == 1:
+        return l
+
+    left = merge_sort(l[:len(l) // 2])
+    right = merge_sort(l[len(l) // 2:])
+
+    sorted_l = []
+    while left and right:
+        if left[0] > right[0]:
+            sorted_l.append(right.pop(0))
+        else:
+            sorted_l.append(left.pop(0))
+
+    return sorted_l + left + right
+```
